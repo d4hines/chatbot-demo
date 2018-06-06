@@ -9,15 +9,18 @@
     (fn []
       (let [enter-disabled? (or (empty? @name) (empty? @chat-room))]
         [:div.container
-         [:div.form-signin
-          [:h2.form-signin-heading "Enter Chat Room"]
-          [:input.form-control {:type      "text" :placeholder "Enter your nickname" :value @name
-                                :on-change #(reset! name (-> % .-target .-value))}]
-          [:input.form-control {:type      "text" :placeholder "Enter room name" :value @chat-room
-                                :on-change #(reset! chat-room (-> % .-target .-value))}]
-          [:button.btn.btn-lg.btn-primary.btn-block
-           {:class    (when enter-disabled? "disabled")
-            :on-click #(dispatch [:enter-chat-room @name @chat-room])} "Enter"]]]))))
+          [:div.form-signin
+            [:h2.form-signin-heading "Enter Chat Room"]
+            [:br]
+            [:input.form-control {:type      "text" :placeholder "Enter your nickname" :value @name
+                                  :on-change #(reset! name (-> % .-target .-value))}]
+            [:br]
+            [:input.form-control {:type      "text" :placeholder "Enter room name" :value @chat-room
+                                  :on-change #(reset! chat-room (-> % .-target .-value))}]
+            [:br]
+            [:button.btn.btn-lg.btn-primary.btn-block
+              {:class    (when enter-disabled? "disabled")
+                :on-click #(dispatch [:enter-chat-room @name @chat-room])} "Enter"]]]))))
 
 (defn message-input-inner [{:keys [value enabled? on-change on-submit]}]
   [:div.input-group
