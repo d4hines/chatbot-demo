@@ -41,3 +41,42 @@ body {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
+
+.panel-info {
+  border-color: #00833F;
+}
+
+.panel-primary {
+  border-color: #002F6D;
+}
+
+.btn-primary {
+  background-color: #002F6D;
+  border-color: #002F6D;
+}
+
+.btn-info {
+  background-color: #00833F;
+  border-color: #00833F;
+}
+
+.btn-info.disabled {
+  background-color: #00833F;
+  border-color: #00833F;
+}
+
+.btn-info:hover {
+  background-color: rgb(8, 196, 99);
+  border-color: rgb(8, 196, 99);
+}
+
+.panel-info .panel-heading {
+  background-color: #00833F;
+  color: #FFF;
+  border-color: #00833F;
+}
+
+.panel-primary .panel-heading {
+  background-color: #002F6D;
+  border-color: #002F6D; 
+}
