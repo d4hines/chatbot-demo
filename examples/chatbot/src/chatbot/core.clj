@@ -9,15 +9,15 @@
   (prn 'received data))
     
 (defn send-message [message] 
-      (ws/send-msg socket (str "[\"~:post-message\",\"" message "\"]")))
-
-(def message-generator
-  (send-message "Do I work now?"))
-
+  (ws/send-msg socket (str "[\"~:post-message\",\"" message "\"]")))
+        
 (def socket
   (ws/connect
-   url
-   :on-receive #(handle-message %))) ;;prn 'received %
+    url
+    :on-receive #(handle-message %))) ;;prn 'received %
+
+(def message-generator
+  (send-message "Hi, Internet! I am ChAI!"))
 
 (def close-socket 
   (ws/close socket))
