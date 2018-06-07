@@ -9,4 +9,6 @@
                  [com.cognitect/transit-clj "0.8.300"]]
   :main ^:skip-aot chatbot.core
   :target-path "target/%s"
-  :profiles {:uberjar {:aot :all}})
+  :profiles {:uberjar {:aot :all}
+             :repl {:plugins [[cider/cider-nrepl "0.16.0"]]
+                    :dependencies [[org.clojure/tools.nrepl "0.2.12"]]}})
