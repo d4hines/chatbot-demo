@@ -9,31 +9,6 @@
 
 (def url "ws://localhost:3449/chat?name=chatbot&room=test")
 
-<<<<<<< HEAD
-(defn handle-message [data] 
-  (prn 'received data))
-    
-(defn send-message [message] 
-  (ws/send-msg socket (str "[\"~:post-message\",\"" message "\"]")))
-        
-(def socket
-  (ws/connect
-    url
-    :on-receive #(handle-message %))) ;;prn 'received %
-
-(def message-generator
-  (send-message "Hi, Internet! I am ChAI!"))
-
-(def close-socket 
-  (ws/close socket))
-            
-            
-                                    
- 
-  
-  
-  
-=======
 (def ^:dynamic *string-encoding* "UTF-8")
 
 (defn read-str
@@ -60,4 +35,3 @@
 
 ;; (ws/close socket)
 
->>>>>>> c4396b9c5f5236513fc3a140673f5fce25add6ec
