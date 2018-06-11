@@ -27,7 +27,8 @@
   :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"]
 
   :figwheel {:css-dirs ["resources/public/css"]
-             :ring-handler       group-chat.core/app-with-reload}
+             :ring-handler       group-chat.core/app-with-reload
+             :server-ip "10.1.2.140"}
              
 
   :cljsbuild {:builds [{:id "dev"
@@ -39,19 +40,8 @@
                                        :asset-path           "js/compiled/out"
                                        :source-map-timestamp true
                                        :preloads             [devtools.preload]}}
-                       {:id "testing"
-                        :source-paths ["src/cljs"]
-                        :figwheel     {:on-jsload "group-chat.core/mount-root"
-                                       :server-ip "10.1.2.140"}
-                        :compiler     {:main                 group-chat.core
-                                        :output-to            "resources/public/js/compiled/app.js"
-                                        :output-dir           "resources/public/js/compiled/out"
-                                        :asset-path           "js/compiled/out"
-                                        :source-map-timestamp true
-                                        :preloads             [devtools.preload]}}
                        {:id           "min"
                         :source-paths ["src/cljs"]
-                        :figwheel     {:server-ip "10.1.2.140"}
                         :compiler     {:main            group-chat.core
                                        :output-to       "resources/public/js/compiled/app.js"
                                        :optimizations   :advanced
