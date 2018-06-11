@@ -214,9 +214,17 @@ more complex example which uses most of the features of pneumatic-tubes also dem
 ## Applications
 * [Commutewise](https://commutewise.com) - social network for commute ridesharing is havily using pneumatic-tubes instead of REST services 
 
+## Removed
+- Group Chat App removed to clean up clutter
+- Average Numbers example removed clean up clutter
+
+## Updated
+- CSS Modified to new color scheme
+- URL Now Listening on our Domain Name
+
 ## What to do next
 * Add tests
-* Example with some clustering solution
+* Change joined and left messages 
 
 ## License
 
