@@ -28,6 +28,7 @@
 
   :figwheel {:css-dirs ["resources/public/css"]
              :ring-handler       group-chat.core/app-with-reload}
+             
 
   :cljsbuild {:builds [{:id "dev"
                         :source-paths ["src/cljs"]
@@ -38,15 +39,26 @@
                                        :asset-path           "js/compiled/out"
                                        :source-map-timestamp true
                                        :preloads             [devtools.preload]}}
-
+                       {:id "testing"
+                        :source-paths ["src/cljs"]
+                        :figwheel     {:on-jsload "group-chat.core/mount-root"
+                                       :server-ip "10.1.2.140"}
+                        :compiler     {:main                 group-chat.core
+                                        :output-to            "resources/public/js/compiled/app.js"
+                                        :output-dir           "resources/public/js/compiled/out"
+                                        :asset-path           "js/compiled/out"
+                                        :source-map-timestamp true
+                                        :preloads             [devtools.preload]}}
                        {:id           "min"
                         :source-paths ["src/cljs"]
+                        :figwheel     {:server-ip "10.1.2.140"}
                         :compiler     {:main            group-chat.core
                                        :output-to       "resources/public/js/compiled/app.js"
                                        :optimizations   :advanced
                                        :closure-defines {goog.DEBUG false}
                                        :pretty-print    false}}]}
 
+            
   :profiles {:dev {:dependencies [[com.cemerick/piggieback "0.2.1"]
                                   [figwheel-sidecar "0.5.10"]]}
              :uberjar       {:prep-tasks ["compile" ["cljsbuild" "once" "min"]]
